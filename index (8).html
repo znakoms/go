@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#32196e">
+  <title>Открыть ссылку</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: #241847; }
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      padding: calc(84px + env(safe-area-inset-top)) 20px calc(42px + env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      background: linear-gradient(165deg, #241944 0%, #321864 47%, #5022a2 100%);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      text-align: center;
+    }
+    main { width: min(100%, 500px); }
+    h1, h2, p { margin: 0; }
+    h1 {
+      font-size: clamp(27px, 6.8vw, 39px);
+      line-height: 1.53;
+      letter-spacing: .025em;
+      font-weight: 850;
+    }
+    h2 {
+      margin-top: 24px;
+      font-size: clamp(25px, 6.5vw, 36px);
+      line-height: 1.55;
+      font-weight: 800;
+    }
+    .instructions {
+      margin: 24px auto 0;
+      max-width: 420px;
+      font-size: clamp(22px, 5.7vw, 29px);
+      line-height: 1.45;
+      font-weight: 500;
+    }
+    .instructions strong { font-weight: 800; }
+    .english {
+      margin-top: 22px;
+      font-size: clamp(22px, 5.5vw, 28px);
+      line-height: 1.4;
+    }
+    .fingerprint-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 220px;
+      height: 220px;
+      margin: 32px auto 0;
+      background: #fff;
+      border-radius: 19px;
+      box-shadow: 0 8px 22px rgba(10, 6, 34, .14);
+      text-decoration: none;
+      cursor: pointer;
+      /* Allow the operating system to display the native link menu on long-press. */
+      -webkit-touch-callout: default;
+      touch-action: manipulation;
+    }
+    .fingerprint-link svg { display: block; width: 166px; height: 166px; pointer-events: none; }
+    .fingerprint-link:focus-visible { outline: 4px solid #9bc6ff; outline-offset: 5px; }
+    .smallprint {
+      margin: 22px auto 0;
+      color: rgba(255,255,255,.77);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    @media (max-height: 740px) {
+      body { justify-content: flex-start; padding-top: calc(44px + env(safe-area-inset-top)); }
+      h1, h2 { line-height: 1.3; }
+      h2, .instructions, .english { margin-top: 18px; }
+      .fingerprint-link { width: 188px; height: 188px; margin-top: 22px; }
+      .fingerprint-link svg { width: 143px; height: 143px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>📢 УДЕРЖИВАЙТЕ<br>ПАЛЕЦ НА ОТПЕЧАТКЕ!</h1>
+    <h2>📢 PRESS AND HOLD YOUR<br>FINGER ON THE PRINT</h2>
+    <p class="instructions">Выберите «<strong>Открыть ссылку</strong>».</p>
+    <p class="english">Choose “open link”.</p>
+
+    <!-- Replace the href below with YOUR actual destination URL. -->
+    <!-- This is an ordinary link: long-press invokes the iOS link preview where supported. -->
+    <a class="fingerprint-link"
+       href="https://example.com/REPLACE-WITH-YOUR-LINK"
+       aria-label="Открыть внешний сайт по ссылке">
+      <svg viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="98" fill="#ed4058"/>
+        <g fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M47 96c0-29 24-53 53-53s53 24 53 53"/>
+          <path d="M34 94c0-36 30-66 66-66s66 30 66 66"/>
+          <path d="M60 112V97c0-22 18-40 40-40s40 18 40 40v19"/>
+          <path d="M73 126V97c0-15 12-27 27-27s27 12 27 27v33"/>
+          <path d="M86 143V97c0-8 6-14 14-14s14 6 14 14v44"/>
+          <path d="M48 116c0 24 7 43 21 56"/>
+          <path d="M61 136c3 14 10 26 19 34"/>
+          <path d="M100 98v34c0 16 5 31 16 44"/>
+          <path d="M128 145c1 12 6 22 12 31"/>
+          <path d="M141 128c0 14 5 26 11 36"/>
+        </g>
+      </svg>
+    </a>
+    <p class="smallprint">18+ · При нажатии откроется внешний сайт.</p>
+  </main>
+</body>
+</html>
