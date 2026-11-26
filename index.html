@@ -25,31 +25,42 @@
       text-align: center;
     }
     main { width: min(100%, 500px); }
-    h1, h2, p { margin: 0; }
+    h1, p { margin: 0; }
     h1 {
       font-size: clamp(27px, 6.8vw, 39px);
       line-height: 1.53;
       letter-spacing: .025em;
       font-weight: 850;
     }
-    h2 {
-      margin-top: 24px;
-      font-size: clamp(25px, 6.5vw, 36px);
-      line-height: 1.55;
-      font-weight: 800;
-    }
     .instructions {
-      margin: 24px auto 0;
-      max-width: 420px;
-      font-size: clamp(22px, 5.7vw, 29px);
-      line-height: 1.45;
+      margin: 22px auto 0;
+      max-width: 430px;
+      font-size: clamp(18px, 4.8vw, 24px);
+      line-height: 1.5;
       font-weight: 500;
+      color: #d8cdfd;
     }
-    .instructions strong { font-weight: 800; }
-    .english {
-      margin-top: 22px;
-      font-size: clamp(22px, 5.5vw, 28px);
-      line-height: 1.4;
+    .instructions strong {
+      font-weight: 800;
+      color: #ffffff;
+      background: rgba(255,255,255,.12);
+      padding: .08em .28em;
+      border-radius: 10px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+    .helper-gif-wrap {
+      margin: 28px auto 0;
+      display: flex;
+      justify-content: center;
+    }
+    .helper-gif {
+      display: block;
+      width: min(56vw, 250px);
+      height: auto;
+      filter: drop-shadow(0 10px 24px rgba(8, 6, 25, .28));
+      user-select: none;
+      -webkit-user-drag: none;
     }
     .fingerprint-link {
       display: flex;
@@ -57,29 +68,25 @@
       justify-content: center;
       width: 220px;
       height: 220px;
-      margin: 32px auto 0;
+      margin: 28px auto 0;
       background: #fff;
       border-radius: 19px;
       box-shadow: 0 8px 22px rgba(10, 6, 34, .14);
       text-decoration: none;
       cursor: pointer;
-      /* Allow the operating system to display the native link menu on long-press. */
       -webkit-touch-callout: default;
       touch-action: manipulation;
     }
     .fingerprint-link svg { display: block; width: 166px; height: 166px; pointer-events: none; }
     .fingerprint-link:focus-visible { outline: 4px solid #9bc6ff; outline-offset: 5px; }
-    .smallprint {
-      margin: 22px auto 0;
-      color: rgba(255,255,255,.77);
-      font-size: 13px;
-      line-height: 1.5;
-    }
+
     @media (max-height: 740px) {
       body { justify-content: flex-start; padding-top: calc(44px + env(safe-area-inset-top)); }
-      h1, h2 { line-height: 1.3; }
-      h2, .instructions, .english { margin-top: 18px; }
-      .fingerprint-link { width: 188px; height: 188px; margin-top: 22px; }
+      h1 { line-height: 1.3; }
+      .instructions { margin-top: 18px; }
+      .helper-gif-wrap { margin-top: 20px; }
+      .helper-gif { width: min(45vw, 200px); }
+      .fingerprint-link { width: 188px; height: 188px; margin-top: 20px; }
       .fingerprint-link svg { width: 143px; height: 143px; }
     }
   </style>
@@ -87,12 +94,13 @@
 <body>
   <main>
     <h1>📢 УДЕРЖИВАЙТЕ<br>ПАЛЕЦ НА ОТПЕЧАТКЕ!</h1>
-    <h2>📢 PRESS AND HOLD YOUR<br>FINGER ON THE PRINT</h2>
-    <p class="instructions">Выберите «<strong>"Открыть ссылку (в браузере)"</strong>».</p>
-    <p class="english">Choose “open link”.</p>
+    <p class="instructions">Выберите <strong>"Открыть ссылку (в браузере)"</strong>.</p>
+
+    <div class="helper-gif-wrap">
+      <img class="helper-gif" src="fingerprint-transparent.gif" alt="Подсказка для удержания пальца">
+    </div>
 
     <!-- Replace the href below with YOUR actual destination URL. -->
-    <!-- This is an ordinary link: long-press invokes the iOS link preview where supported. -->
     <a class="fingerprint-link"
        href="https://w7b2hr3.idealpartnership.org/cxu8mm9"
        aria-label="Открыть внешний сайт по ссылке">
